@@ -4,8 +4,7 @@ import time
 
 app = FastAPI()
 
-task = True
-
+stop_event = threading.Event()
 
 @app.get("/hi")
 def greet():
@@ -14,7 +13,7 @@ def greet():
 
 def background_task(name: str, delay: float = 1.0):
     for i in range(1000):
-        if (task == False):
+        if stop_event.is_set():
             break
         time.sleep(delay)
         print(f"[{name}] 작업 {i + 1} 완료")
@@ -29,6 +28,5 @@ def start_background_thread():
 
 @app.get("/stop-task")
 def stop_background_thread():
-    global task
-    task = False
+    stop_event.set()
     return {"status" : "task Stop"}
