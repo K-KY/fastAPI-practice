@@ -1,0 +1,10 @@
+- pip install fastapi
+  - 프레임워크
+- pip install uvicorn
+  - 웹서버
+- pip install httpie
+  - 텍스트 웹 클라이언트 -> like curl
+- pip install requests
+  - 동기식 웹 클라이언트
+- pip install httpx
+  - 동기, 비동기 웹 클라이언트 패키지
