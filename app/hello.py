@@ -18,4 +18,3 @@ def start_background_thread():
     thread = threading.Thread(target=background_task, args=("백그라운드 작업", 1), daemon=True)
     thread.start()
     return {"status": "작업이 백그라운드에서 시작되었습니다."}
-gh repo create fastAPI-practice
